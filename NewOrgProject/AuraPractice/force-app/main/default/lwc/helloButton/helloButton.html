@@ -1,0 +1,22 @@
+<template>
+    <h1>{changeText}</h1>
+    <lightning-button 
+      variant="base"
+      label="ボタンです、押してね" 
+      onclick={handleClick} 
+    ></lightning-button>
+
+    <lightning-card icon-name="standard:account" variant="base" title="在庫一覧">
+      <template if:true={dataList.data}>
+        <template for:each={dataList.data} for:item="item">
+          <p key={item.id}>
+            {item.Name}/在庫数：{item.Stock.c}
+          </p>
+        </template>
+      </template>
+      <template if:true={dataList.error}>
+        <p>エラーでてます：{dataList.error}</p>
+      </template>
+    </lightning-card>
+
+</template>

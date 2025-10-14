@@ -1,0 +1,16 @@
+<template>
+    <template if:true={lowStockList.data}>
+        <template for:each={lowStockList.data} item="item">
+            <p key={item.Id}>
+                {item.Name}(残り：{item.Stock_c})
+            </p>
+        </template>
+    </template>
+    
+    <template if:true={lowStockList.error}>
+        <p style="color: red;">
+            エラーが出てます：{lowStockList.error}
+        </p>
+
+    </template>
+</template>

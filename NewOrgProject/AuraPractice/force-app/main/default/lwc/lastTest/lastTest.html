@@ -1,0 +1,17 @@
+<template>
+    <lightning-card icon-name="standard:account" variant="base" title="取引先５件まで">
+        <template if:true={limitedList}>
+            <template for:each={limitedList} for:item="acc">
+                <div key={acc.Id} class="sldsSmall">
+                    <p><strong>名前：{acc.name}</strong></p>
+                    <p>業種：{acc.Industry}</p>
+                    <p>電話番号：{acc.Phone}</p>
+                    <hr />
+                </div>
+            </template>
+        </template>
+        <template if:true={error}>
+            <p>エラーです：{error.body.message}</p>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,22 @@
+<template>
+    <lightning-button 
+      variant="base"
+      label={}
+      onclick={handleToggle} 
+    ></lightning-button>
+
+    <template if:true={}>
+        <template for:each={inventory} for:item="item">
+            <p key={item.id}>
+                {item.name},{item.Stock_c}
+            </p>
+        </template>
+
+    </template>
+
+    <template if:true={error}>
+        <p>エラーです：{error}</p>
+    </template>    
+    
+    
+</template>

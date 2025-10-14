@@ -1,0 +1,30 @@
+<template>
+    <lightning-input 
+      type="text"
+      label="Enter some text"
+      onchange={handleChange}
+    ></lightning-input>
+    <lightning-button 
+      variant="base"
+      label="Button Label" 
+      onclick={handleClick} 
+    ></lightning-button>
+    <template if:true={contactList.lenght}>
+        <template for:each={contactList} item={contact}>
+            <p key={contact.Id}>
+                {contact.FirstName}/{contact.LastName}/{contact.Email}
+            </p>
+        </template>
+    </template>
+    <template if:false={contactList.lenght}>
+        <p>
+            入力欄に入力してください
+        </p>
+    </template>
+    <template if:true={error}>
+        <p>
+            エラーです：{error.body.message}
+        </p>
+    </template>
+
+</template>
